@@ -1,0 +1,29 @@
+<div class="text-center container mt-5">
+        <ng-multiselect-dropdown
+        [placeholder]="'Select Poke Name'"
+          [settings]="dropdownSettings"
+          [data]="dropDownList"
+          [(ngModel)]="selectedItems"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+        >
+        </ng-multiselect-dropdown>
+<div
+  class="card container mt-5 mb-5 p-1"
+  style="width: 50rem; display: block; text-align: center"
+  *ngFor="let p of pokemons"
+>
+  <img
+    class="card-img-top img-center"
+    src="{{ p.sprites.front_default }}"
+    alt="Card image cap"
+    style="width: 100px; height: 100px"
+  />
+  <div class="card-body">
+    <p>Id : {{ p.id }}</p>
+    <p>Name : {{ p.name }}</p>
+    <p>Type : {{ p.types[0].type.name }}</p>
+    <p>Weight : {{ p.weight }}</p>
+    <p>Height : {{ p.height }}</p>
+  </div>
+</div>
